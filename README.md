@@ -5,7 +5,7 @@
 
 This project aims to build a KNN-based recommender system that suggests books similar to a user-selected title, leveraging features from the Goodreads dataset.
 <p align="center">
-  <img src="https://files.oaiusercontent.com/file-2X8ndc9hGaLXHmufCa6S9cbW?se=2024-10-30T08%3A38%3A52Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Db1644b66-c247-497a-aef3-57bbc417d495.webp&sig=yfWx6tqGcVgPS1YU7jkTMgQJivmQMY0jCcRsxH0fI8Q%3D" width="400" alt="Library Image">
+  <img src="https://images.stockcake.com/public/d/f/3/df3b852c-54b1-43ee-88ee-0a0177b3e031_large/antique-library-aisle-stockcake.jpg" width="500" alt="Library Image">
 </p>
 
 ## Project Overview
