@@ -83,12 +83,35 @@ This project aims to build a KNN-based recommender system that suggests books si
   4. Magic Bites (Kate Daniels  #1)
   5. In the Heart of the Sea: The Tragedy of the Whaleship Essex
   ```
+  
 **Strong Matches** : In the Heart of the Sea, Shutter Island, and Murder on the Orient Express are closely aligned with the themes of suspense and moral complexity.
 
 **Moderate Matches** : Magic Bites has some thematic overlaps but may appeal more to those interested in fantasy settings.
 
 **Weaker Match** : My Life in France diverges significantly in tone and genre, making it a less appropriate recommendation.
 
+```
+recommend_books('junie b jones', num_recommendations=5)
+```
+```
+Match result: ('junie b. jones and a little monkey business (junie b. jones  #2)', 86, 1167)
+Book indices found: [1167]
+Recommendations for 'junie b. jones and a little monkey business (junie b. jones  #2)':
+1. JLA Vol. 1: New World Order
+2. The Case of the Snowboarding Superstar (Jigsaw Jones  #29)
+3. The School Skeleton (A to Z Mysteries  #19)
+4. How Much is That Guinea Pig in the Window?
+5. The OK Book
+```
+
+**Strong Matches**: The Case of the Snowboarding Superstar and The School Skeleton have similar kid-friendly mystery themes.
+
+**Moderate Matches**: How Much is That Guinea Pig in the Window? fits with Junie B. Jones’ humorous and youthful style.
+
+**Weaker Match**: JLA Vol. 1: New World Order, with its superhero theme, is a less relevant recommendation.
+
+> [!NOTE]
+> More examples tested in the jupyter notebook
 
 - **Observations**: There is plenty of genre overlap in the recommendations which inspires confidence in the model. Authors and series seem to be clustered very closely, as inputting something like harry potter will output other books in the harry potter series. This is also a good sign that things are working as intended, as author was not considered in the feature set.   
 
