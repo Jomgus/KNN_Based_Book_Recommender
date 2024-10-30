@@ -19,24 +19,24 @@ This project aims to build a KNN-based recommender system that suggests books si
 ### 1. Data Sourcing and Preparation
    - **Data Collection**: [Kaggle’s Goodreads dataset](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks)  offers a comprehensive list of books spanning the entire Goodreads website. Book datasets serve as an excellent basis for analysis and modeling. Every book contains within itself a variety of features that can be explored and compared against others, making this kind of project an interesting opportunity to experiment with those features and generate new insight.
 
-     column descriptions: 
-1. bookID = contains the unique ID for each book/series
-2. title = contains the titles of the books
-3. authors = contains the author of the particular book
-4. average_rating = the average rating of the books, as decided by the users
-5. ISBN ISBN(10) = number, tells the information about a book - such as edition and publisher
-6. ISBN 13 = the new format for ISBN, implemented in 2007. 13 digits
-7. language_code = tells the language for the books
-8. Num_pages = contains the number of pages for the book
-9. Ratings_count = contains the number of ratings given for the book
-10. text_reviews_count = has the count of reviews left by users
+#### column descriptions:
+1. bookID = unique ID for each book
+2. title = title of book
+3. authors = author of book
+4. average_rating = average rating of the book, (1-5)
+5. ISBN ISBN(10) = number that corresponds to information about a book - such as edition and publisher
+6. ISBN 13 = new format for ISBN, introduced in 2007, 13 digits
+7. language_code = book language
+8. Num_pages = number of pages per book
+9. Ratings_count = number of ratings per book
+10. text_reviews_count = count of reviews left per book
 11. publication_date = date of publication
 12. publisher = name of the publisher
    - **Preprocessing**: The data was not perfectly clean at the outset. Bad lines in the dataset had to be dealt with, column titles had to be stripped of whitespaces, and author names had to be standardized.
 
 ### 2. Feature Engineering
    - **Feature Selection**: Initially thought to only include the numerical features (e.g., `average_rating`, `num_pages`, `ratings_count`, etc.), then expanded the feature set to include languages.
-   - **Encoding**: One-hot encoding was chosen to prepare language_code for the KNN model. The language encoded dataframe was then concatonated with the numerical features dataframe and turned into a feature matrix to load into the model.
+   - **Encoding**: One-hot encoding was chosen to prepare language_code for the KNN model. The language encoded dataframe was then concatenated with the numerical features dataframe and turned into a feature matrix to load into the model.
    - **Scaling**: Data normalized with Scikit-Learn's min-max scaler.  
 
 ### 3. Model Selection and Tuning
@@ -57,7 +57,7 @@ This project aims to build a KNN-based recommender system that suggests books si
   
 
 ### 4. Model Implementation
-   - **Similarity Matching**: The fuzzy matching library fuzzywuzzy was used to improve title matching, allowing the system to handle minor variations or errors in user-inputted book titles. This increases the system’s flexibility and usability, matching input titles closely to those in the dataset.
+   - **Similarity Matching**: The fuzzy matching library FuzzyWuzzy was used to improve title matching, allowing the system to handle minor variations or errors in user-inputted book titles. This increases the system’s flexibility and usability, matching input titles closely to those in the dataset.
    - **Recommendation Function**: A custom function was designed to retrieve book recommendations based on a user-provided title.
      - Input: User-selected book title.
      - Output: List of similar book titles based on proximity in the feature space.
@@ -65,7 +65,7 @@ This project aims to build a KNN-based recommender system that suggests books si
 
 ### 5. Evaluation and Testing
    - **Quality Assessment**: The system was evaluated manually by inputting a variety of popular book titles and examining the recommendations. Recommendations were judged on similarity in genre, theme, or author to ensure relevance.
-   - **Error Analysis**: The recommendations from the base model are generally good, however they sometimes produce recommendations that vary widly in genre and theme. I expect this recommendation system would be more consistent if there were a genre feature that could then be encoded to more accurately match recommendations.
+   - **Error Analysis**: The recommendations from the base model are generally good, however they sometimes produce recommendations that vary wildly in genre and theme. I expect this recommendation system would be more consistent if there were a genre feature that could then be encoded to more accurately match recommendations.
 
 ## Results and Insights
 
@@ -94,11 +94,11 @@ This project aims to build a KNN-based recommender system that suggests books si
 
 ## Visualizations
 
-![image](https://i.imgur.com/LExwIHX.png)
+![image](https://i.imgur.com/eo2cc3x.png)
 
 Twilight has just over 4 million reviews. Something interesting here is that twilight is a series, having such a huge margin between itself and other books in the top 5, the discrepancy between twilight book 1 and any other book in the series must be huge. This tells us there are many people who did not read past the first book. 
 
-![image](https://i.imgur.com/eo2cc3x.png)
+![image](https://i.imgur.com/LExwIHX.png)
 
 From this distribution we can tell that most ratings are clustered around 4 and anything near 5 or below 3 is very rare. Some observations: 
 
